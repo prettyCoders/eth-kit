@@ -9,11 +9,11 @@ package kit
 import (
 	"bytes"
 	"encoding/hex"
-	"eth-kit/test"
-	"eth-kit/util/testutil"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/prettyCoders/eth-kit/test"
+	"github.com/prettyCoders/eth-kit/util/testutil"
 	"testing"
 )
 

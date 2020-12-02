@@ -7,8 +7,8 @@
 package erc20
 
 import (
-	"eth-kit/kit"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/prettyCoders/eth-kit/kit"
 )
 
 //LoadErc20 加载ERC20合约

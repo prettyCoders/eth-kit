@@ -7,7 +7,7 @@
 package kit
 
 import (
-	"eth-kit/util/testutil"
+	"github.com/prettyCoders/eth-kit/util/testutil"
 	"testing"
 )
 

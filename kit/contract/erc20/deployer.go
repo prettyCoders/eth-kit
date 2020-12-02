@@ -7,11 +7,11 @@
 package erc20
 
 import (
-	"eth-kit/kit"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/prettyCoders/eth-kit/kit"
 	"math/big"
 )
 

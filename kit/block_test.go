@@ -7,8 +7,8 @@
 package kit
 
 import (
-	"eth-kit/util/testutil"
 	"fmt"
+	"github.com/prettyCoders/eth-kit/util/testutil"
 	"log"
 	"testing"
 )

@@ -7,11 +7,11 @@
 package kit
 
 import (
-	"eth-kit/test"
-	"eth-kit/util/ethutil"
-	"eth-kit/util/testutil"
 	"fmt"
 	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/prettyCoders/eth-kit/test"
+	"github.com/prettyCoders/eth-kit/util/ethutil"
+	"github.com/prettyCoders/eth-kit/util/testutil"
 	"log"
 	"testing"
 )

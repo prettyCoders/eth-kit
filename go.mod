@@ -1,4 +1,4 @@
-module eth-kit
+module github.com/prettyCoders/eth-kit
 
 go 1.15
 

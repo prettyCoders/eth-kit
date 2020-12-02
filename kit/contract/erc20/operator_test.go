@@ -7,9 +7,9 @@
 package erc20
 
 import (
-	"eth-kit/kit"
-	"eth-kit/test"
-	"eth-kit/util/testutil"
+	"github.com/prettyCoders/eth-kit/kit"
+	"github.com/prettyCoders/eth-kit/test"
+	"github.com/prettyCoders/eth-kit/util/testutil"
 	"testing"
 )
 

@@ -7,8 +7,8 @@
 package contract
 
 import (
-	"eth-kit/kit"
-	"eth-kit/test"
+	"github.com/prettyCoders/eth-kit/kit"
+	"github.com/prettyCoders/eth-kit/test"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

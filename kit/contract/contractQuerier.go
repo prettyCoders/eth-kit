@@ -8,8 +8,8 @@ package contract
 
 import (
 	"context"
-	"eth-kit/kit"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/prettyCoders/eth-kit/kit"
 )
 
 //QueryByteCode 获取合约字节码
