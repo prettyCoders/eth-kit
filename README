@@ -1,3 +1,4 @@
 ethereum工具库
 参考资料：https://goethereumbook.org/zh/
 包含hd钱包、ETH转账、余额查询、离线签名、合约部署、合约交互，链上数据查询、订阅等
+欢迎使用:go get github.com/prettyCoders/eth-kit
