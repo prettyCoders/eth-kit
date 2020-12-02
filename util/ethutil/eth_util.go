@@ -1,6 +1,7 @@
 package ethutil
 
 import (
+	"github.com/ethereum/go-ethereum/crypto"
 	"math/big"
 	"strconv"
 
@@ -79,4 +80,9 @@ func SigRSV(isig interface{}) ([32]byte, [32]byte, uint8) {
 	V := uint8(vI + 27)
 
 	return R, S, V
+}
+
+//ContractEventToTopic 合约event方法签名转topic
+func ContractEventToTopic(fnSignature string) string {
+	return crypto.Keccak256Hash([]byte(fnSignature)).Hex()
 }

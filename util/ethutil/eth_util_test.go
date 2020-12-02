@@ -8,6 +8,7 @@ package ethutil
 
 import (
 	"fmt"
+	"github.com/prettyCoders/eth-kit/util/testutil"
 	"math/big"
 	"testing"
 
@@ -70,4 +71,8 @@ func TestSigRSV(t *testing.T) {
 	}
 
 	fmt.Println(ToWei(0.0001, 18).String())
+}
+
+func TestContractFnToTopic(t *testing.T) {
+	testutil.AssertEqual(t, ContractEventToTopic("Transfer(address,address,uint256)"), "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef")
 }
