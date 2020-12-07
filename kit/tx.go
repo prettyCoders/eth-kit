@@ -27,16 +27,21 @@ type TxData struct {
 	Data          []byte
 }
 
-//QueryTxMessage 查询交易数据，BlockByNumber里面的交易列表没有from
-func QueryTxMessage(tx *types.Transaction) (*types.Message, error) {
-	if chainID, err := RpcClient.NetworkID(context.Background()); err != nil {
+//QueryChainID 查询链ID
+func QueryChainID() (*big.Int, error) {
+	if chainID, err := RpcClient.ChainID(context.Background()); err != nil {
 		return nil, err
 	} else {
-		if msg, err := tx.AsMessage(types.NewEIP155Signer(chainID)); err != nil {
-			return nil, err
-		} else {
-			return &msg, nil
-		}
+		return chainID, nil
+	}
+}
+
+//QueryTxMessage 查询交易数据，BlockByNumber里面的交易列表没有from
+func QueryTxMessage(chainID *big.Int, tx *types.Transaction) (*types.Message, error) {
+	if msg, err := tx.AsMessage(types.NewEIP155Signer(chainID)); err != nil {
+		return nil, err
+	} else {
+		return &msg, nil
 	}
 }
 
