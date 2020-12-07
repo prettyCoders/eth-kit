@@ -16,12 +16,21 @@ import (
 	"testing"
 )
 
+func TestQueryChainID(t *testing.T) {
+	InitTestClient()
+	chainID, err := QueryChainID()
+	testutil.AssertNil(t, err)
+	testutil.AssertNotNil(t, chainID)
+}
+
 func TestQueryTxMessage(t *testing.T) {
 	InitTestClient()
+	chainID, err := QueryChainID()
+	testutil.AssertNil(t, err)
 	block, err := QueryBlockByHeight(9180007)
 	testutil.AssertNil(t, err)
 	for _, tx := range block.Transactions() {
-		txMessage, err := QueryTxMessage(tx)
+		txMessage, err := QueryTxMessage(chainID, tx)
 		testutil.AssertNil(t, err)
 		testutil.AssertNotNil(t, txMessage.From())
 	}
@@ -40,8 +49,12 @@ func TestQueryTxReceipt(t *testing.T) {
 }
 
 func TestQueryTxByHash(t *testing.T) {
-	InitTestClient()
-	tx, isPending, err := QueryTxByHash("0x7b9429d179845cab158d01aae3f132aa86c77565e2d7fbc37dd3312ebf78fb8d")
+	err := InitEthClient(test.InfuraRpcMainNet, test.InfuraWsMainNet)
+	if err != nil {
+		panic(err)
+	}
+	tx, isPending, err := QueryTxByHash("0xcfeaab6132d549f2d8d203dd5702f91472e463660657efd174949cd205ddf025")
+	fmt.Println(tx.To().Hex())
 	testutil.AssertNil(t, err)
 	testutil.AssertFalse(t, isPending)
 	testutil.AssertNotNil(t, tx)
