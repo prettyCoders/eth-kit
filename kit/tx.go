@@ -7,6 +7,7 @@
 package kit
 
 import (
+	"bytes"
 	"context"
 	"encoding/hex"
 	"github.com/ethereum/go-ethereum"
@@ -38,7 +39,7 @@ func QueryChainID() (*big.Int, error) {
 
 //QueryTxMessage 查询交易数据，BlockByNumber里面的交易列表没有from
 func QueryTxMessage(chainID *big.Int, tx *types.Transaction) (*types.Message, error) {
-	if msg, err := tx.AsMessage(types.NewEIP155Signer(chainID)); err != nil {
+	if msg, err := tx.AsMessage(types.NewEIP155Signer(chainID), nil); err != nil {
 		return nil, err
 	} else {
 		return &msg, nil
@@ -108,9 +109,12 @@ func BuildRawTransactionHex(txData *TxData) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	ts := types.Transactions{signedTx}
-	rawTxBytes := ts.GetRlp(0)
-	rawTxHex := hex.EncodeToString(rawTxBytes)
+	var buffer bytes.Buffer
+	err = signedTx.EncodeRLP(&buffer)
+	if err != nil {
+		return "", err
+	}
+	rawTxHex := hex.EncodeToString(buffer.Bytes())
 	return rawTxHex, nil
 }
 
